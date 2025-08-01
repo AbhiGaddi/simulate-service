@@ -48,8 +48,8 @@ simulate-service
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd ai-noc-microservice
+   git clone https://github.com/AbhiGaddi/simulate-service.git
+   cd simulate-service
    ```
 
 2. Install dependencies:
