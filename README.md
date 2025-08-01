@@ -1,4 +1,4 @@
-# AI NOC Microservice
+# Simulate Service
 
 This project is a simple, extensible microservice designed to support the development, testing, and evaluation of automated Network Operations Center (NOC) operations. It provides a general-purpose backend for storing logs, metrics, events, and agent actions using a PostgreSQL database.
 
@@ -19,7 +19,7 @@ ai-noc-microservice
 ├── src
 │   ├── app.ts                # Initializes the Express application and sets up middleware
 │   ├── server.ts             # Starts the server and listens on a specified port
-│   ├── controllers
+simulate-service
 │   │   └── recordsController.ts # Handles business logic for records
 │   ├── routes
 │   │   └── records.ts        # Defines routes for the records API
