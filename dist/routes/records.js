@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const recordsController_1 = require("../controllers/recordsController");
+const validation_1 = require("../middlewares/validation");
+const router = (0, express_1.Router)();
+const recordsController = new recordsController_1.RecordsController();
+router.post('/records', validation_1.validateCreateRecord, recordsController.createRecord.bind(recordsController));
+router.get('/records/:id', recordsController.getRecordById.bind(recordsController));
+router.get('/records', recordsController.getRecords.bind(recordsController));
+exports.default = router;
