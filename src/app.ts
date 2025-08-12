@@ -9,6 +9,11 @@ const app = express();
 app.use(cors());
 app.use(json());
 
+// Health check endpoint for Kubernetes probes
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
 app.use(recordsRouter);
 
 app.use(errorHandler);
