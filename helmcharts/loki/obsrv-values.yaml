@@ -1,0 +1,69 @@
+loki:
+  chunksCache:
+    enabled: false
+  deploymentMode: SimpleScalable
+  fullnameOverride: loki
+  loki:
+    auth_enabled: false
+    commonConfig:
+      replication_factor: 1
+    compactor:
+      compaction_interval: 10m
+      delete_request_store: s3
+      retention_delete_delay: 1h
+      retention_delete_worker_count: 150
+      retention_enabled: true
+      working_directory: /var/loki/compactor
+    fullNameOverride: loki
+    nameOverride: loki
+    namespace: loki
+    schemaConfig:
+      configs:
+        - from: "2023-01-01"
+          index:
+            period: 24h
+            prefix: index_
+          object_store: s3
+          schema: v13
+          store: tsdb
+    storage_config:
+      tsdb_shipper:
+        active_index_directory: /var/loki/tsdb-index
+        cache_location: /var/loki/tsdb-cache
+        cache_ttl: 24h
+  minio:
+    enabled: true
+    replicas: 1
+    rootUser: loki-logs-admin
+    rootPassword: NvCmV8L7ZPCLozNF30tcZKr9Q
+  monitoring:
+    dashboards:
+      enabled: false
+      namespace: monitoring
+    fullnameOverride: loki
+    lokiCanary:
+      enabled: false
+    nameOverride: loki
+    selfMonitoring:
+      enabled: false
+      grafanaAgent:
+        installOperator: false
+    serviceMonitor:
+      metricsInstance:
+        enabled: false
+  nameOverride: loki
+  read:
+    replicas: 1
+  resultsCache:
+    enabled: false
+  sidecar:
+    rules:
+      enabled: false
+  singleBinary:
+    replicas: 0
+  test:
+    enabled: false
+  write:
+    replicas: 1
+  backend:
+    replicas: 1
