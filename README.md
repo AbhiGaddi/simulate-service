@@ -72,7 +72,7 @@ simulate-service
 Use the following curl command to create a new log record:
 
 ```sh
-curl --location 'http://localhost:3000/records' \
+curl --location 'http://localhost:8080/records' \
 --header 'Content-Type: application/json' \
 --data '{
     "type": "log",
@@ -89,10 +89,30 @@ curl --location 'http://localhost:3000/records' \
 Use the following curl command to retrieve all records of type `log`:
 
 ```sh
-curl --location 'http://localhost:3000/records?type=log'
+curl --location 'http://localhost:8080/records?type=log'
 ```
 
 Refer to the OpenAPI documentation for detailed information on request and response formats.
+
+## JMeter Load Testing
+
+### Prerequisites
+
+- [Apache JMeter](https://jmeter.apache.org/) installed
+
+### What does the JMeter test do?
+
+The provided JMeter test plan (`simulate-service.jmx`) simulates HTTP requests to your service endpoints (such as `/records`). It helps you measure the performance and stability of the service under load by generating multiple requests and collecting response times and other metrics.
+
+### Running the Test
+
+```sh
+jmeter -n -t simulate-service.jmx -l results.jtl
+```
+
+- `-n`: Non-GUI mode
+- `-t`: Test plan file
+- `-l`: Results output file
 
 ## Contributing
 

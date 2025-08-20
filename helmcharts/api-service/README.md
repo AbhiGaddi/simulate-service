@@ -57,7 +57,7 @@ The following table lists the configurable parameters of the api-service chart a
 | `image.tag` | Container image tag | `latest` |
 | `image.pullPolicy` | Container image pull policy | `IfNotPresent` |
 | `service.type` | Kubernetes service type | `ClusterIP` |
-| `service.port` | Kubernetes service port | `3000` |
+| `service.port` | Kubernetes service port | `8080` |
 | `ingress.enabled` | Enable ingress | `false` |
 | `ingress.className` | Ingress class name | `""` |
 | `ingress.hosts` | Ingress hosts configuration | `[{host: api-service.local, paths: [{path: /, pathType: ImplementationSpecific}]}]` |
@@ -77,7 +77,7 @@ The following table lists the configurable parameters of the api-service chart a
 | `database.password` | Database password | `postgres` |
 | `database.existingSecret` | Existing secret for database password | `""` |
 | `database.existingSecretKey` | Key in existing secret for password | `password` |
-| `config.port` | Application port | `3000` |
+| `config.port` | Application port | `8080` |
 | `config.cors.enabled` | Enable CORS | `true` |
 | `config.cors.origin` | CORS origin | `"*"` |
 | `config.logging.level` | Logging level | `info` |
@@ -178,7 +178,7 @@ kubectl get svc api-service
 ### Port Forward for Local Access
 
 ```bash
-kubectl port-forward svc/api-service 8080:3000
+kubectl port-forward svc/api-service 8080:8080
 ```
 
 Then access the API at `http://localhost:8080`.

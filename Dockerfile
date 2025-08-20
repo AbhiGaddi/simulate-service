@@ -22,7 +22,7 @@ RUN chown -R nodejs:nodejs /app
 USER nodejs
 
 # Expose the port
-EXPOSE 3000
+EXPOSE 8080
 
 # Start the service using ts-node
 CMD ["npm", "start"]

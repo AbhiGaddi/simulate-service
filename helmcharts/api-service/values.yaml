@@ -23,7 +23,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3000
+  port: 8080
 
 ingress:
   enabled: false
@@ -69,7 +69,7 @@ database:
 
 # Application configuration
 config:
-  port: 3000
+  port: 8080
   cors:
     enabled: true
     origin: "*"
@@ -81,7 +81,7 @@ config:
 livenessProbe:
   httpGet:
     path: /health
-    port: 3000
+    port: 8080
   initialDelaySeconds: 30
   periodSeconds: 10
   timeoutSeconds: 5
@@ -90,11 +90,11 @@ livenessProbe:
 readinessProbe:
   httpGet:
     path: /health
-    port: 3000
-  initialDelaySeconds: 5
+    port: 8080
+  initialDelaySeconds: 30
   periodSeconds: 5
   timeoutSeconds: 3
   failureThreshold: 3
 
 # Environment variables
-env: [] 
+env: []
